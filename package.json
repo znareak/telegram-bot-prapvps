@@ -4,7 +4,8 @@
   "description": "A bot for prapvps",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon node index.js"
+    "start": "node index.js",
+    "dev": "npx nodemon node index.js"
   },
   "author": "",
   "license": "ISC",

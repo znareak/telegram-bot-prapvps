@@ -26,7 +26,12 @@ async function bitcoinPrice() {
 }
 
 async function allPrices() {
-  const promises = [dollarPrice(), euroPrice(), petroleumPrice()];
+  const promises = [
+    dollarPrice(),
+    euroPrice(),
+    petroleumPrice(),
+    bitcoinPrice(),
+  ];
   const prices = await Promise.all(promises);
   let template = "";
   for (const price of prices) {

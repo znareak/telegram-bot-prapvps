@@ -41,7 +41,7 @@ async function getpetroleumPrice() {
 
 async function getBitcointPrice() {
   const priceDollar = await getDataBitcointPrices();
-  return "$" + priceDollar.bpi.USD.rate;
+  return "$" + Math.floor(priceDollar.bpi.USD.rate);
 }
 
 module.exports = {

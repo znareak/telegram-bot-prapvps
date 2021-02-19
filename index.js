@@ -4,6 +4,7 @@ const {
   petroleumPrice,
   bitcoinPrice,
   allPrices,
+  getRandomCat,
 } = require("./messages");
 const { bot } = require("./config");
 
@@ -38,9 +39,9 @@ bot.command("petroleo", async (ctx) => {
 });
 
 bot.command("bitcoin", async (ctx) => {
-   const message = await bitcoinPrice();
-   ctx.reply(message);
- });
+  const message = await bitcoinPrice();
+  ctx.reply(message);
+});
 
 bot.command("divisas", async (ctx) => {
   const prices = await allPrices();
@@ -49,10 +50,16 @@ bot.command("divisas", async (ctx) => {
   ctx.reply(prices);
 });
 
+bot.command("gato", async (ctx) => {
+  const url = await getRandomCat();
+  ctx.replyWithAnimation(url);
+});
+
+
 bot.command("foto", (ctx) => {
   ctx.replyWithPhoto(
     "https://i.pximg.net/img-master/img/2021/02/08/08/04/30/87616095_p0_master1200.jpg"
   );
 });
-
+ 
 bot.launch();

@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
-const { api_dolartoday, api_bitcoint } = require("./config");
+const { api_dolartoday, api_bitcoint, api_cat_gif } = require("./config");
+
 function formatNumber(num) {
   num = parseInt(num);
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
@@ -42,9 +43,15 @@ async function getpetroleumPrice() {
 async function getBitcointPrice() {
   const priceBitcoin = await getDataBitcointPrices();
   let price = priceBitcoin.bpi.USD.rate.replace(",", ".");
-  
+
   price = price.substring(0, price.lastIndexOf("."));
   return "$" + price;
+}
+
+async function getRandomCat() {
+  const res = await fetch(api_cat_gif);
+  const cat = await res.json();
+  return cat[0].url;
 }
 
 module.exports = {
@@ -53,4 +60,5 @@ module.exports = {
   getEuroPrice,
   getpetroleumPrice,
   getBitcointPrice,
+  getRandomCat
 };

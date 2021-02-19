@@ -3,6 +3,7 @@ const {
   getEuroPrice,
   getpetroleumPrice,
   getBitcointPrice,
+  getRandomCat,
 } = require("./helpers");
 
 async function dollarPrice() {
@@ -47,4 +48,5 @@ module.exports = {
   petroleumPrice,
   bitcoinPrice,
   allPrices,
+  getRandomCat,
 };
